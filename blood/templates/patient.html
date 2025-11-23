@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Request Blood{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg rounded w-100" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="text-info font-weight-bold text-center mb-4">Blood Request Form</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="text-left form-group">
+                    {{ form.name.label(class="font-weight-bold text-dark") }}
+                    {{ form.name(class="form-control", placeholder="Full Name") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.age.label(class="font-weight-bold text-dark") }}
+                    {{ form.age(class="form-control", placeholder="Age") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.email.label(class="font-weight-bold text-dark") }}
+                    {{ form.email(class="form-control", placeholder="Email Address") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.phone_number.label(class="font-weight-bold text-dark") }}
+                    {{ form.phone_number(class="form-control", placeholder="Phone Number") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.blood_group.label(class="font-weight-bold text-dark") }}
+                    {{ form.blood_group(class="form-control") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.hospital_name.label(class="font-weight-bold text-dark") }}
+                    {{ form.hospital_name(class="form-control", placeholder="Hospital Name") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.reason.label(class="font-weight-bold text-dark") }}
+                    {{ form.reason(class="form-control", placeholder="Reason for Blood Requirement") }}
+                </div>
+
+                <div class="text-left text-center mt-4">
+                    {{ form.submit(class="btn btn-info btn-lg px-5 shadow-sm") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Donate Blood{% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="card shadow-lg rounded w-100" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="text-danger font-weight-bold text-center mb-4">Blood Donation Form</h2>
+
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="text-left form-group">
+                    {{ form.name.label(class="font-weight-bold text-dark") }}
+                    {{ form.name(class="form-control", placeholder="Full Name") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.age.label(class="font-weight-bold text-dark") }}
+                    {{ form.age(class="form-control", placeholder="Age") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.email.label(class="font-weight-bold text-dark") }}
+                    {{ form.email(class="form-control", placeholder="Email Address") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.address.label(class="font-weight-bold text-dark") }}
+                    {{ form.address(class="form-control", placeholder="Residential Address") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.phone_number.label(class="font-weight-bold text-dark") }}
+                    {{ form.phone_number(class="form-control", placeholder="Phone Number") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.blood_group.label(class="font-weight-bold text-dark") }}
+                    {{ form.blood_group(class="form-control") }}
+                </div>
+
+                <div class="text-left form-group">
+                    {{ form.gender.label(class="font-weight-bold text-dark") }}
+                    {{ form.gender(class="form-control") }}
+                </div>
+
+                <div class="text-left text-center mt-4">
+                    {{ form.submit(class="btn btn-danger btn-lg px-5 shadow-sm") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
