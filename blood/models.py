@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(30), nullable=False, unique=True)
     email_address = db.Column(db.String(50), nullable=False, unique=True)
     password_hash = db.Column(db.String(60), nullable=False)
+    role = db.Column(db.String(20), nullable=False, default="User")
     donations = db.relationship('Donation', backref='donor', lazy=True)
 
     @property
@@ -33,13 +34,15 @@ class Donation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    email = db.Column(db.String(120), nullable=False)
     address = db.Column(db.Text, nullable=False)
     phone_number = db.Column(db.String(15), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
     blood_group = db.Column(db.String(10), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
     donation_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     donor_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    status = db.Column(db.String(20), nullable=False, default="Pending")
+
 
     def __repr__(self):
         return f"<Donation {self.name} - {self.blood_group}>"
@@ -55,6 +58,7 @@ class PatientRequest(db.Model):
     hospital_name = db.Column(db.String(100), nullable=False)
     reason = db.Column(db.Text, nullable=False)
     request_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    status = db.Column(db.String(20), nullable=False, default="Open")
 
     def __repr__(self):
         return f"<PatientRequest {self.name} - {self.blood_group}>"

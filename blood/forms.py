@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField, IntegerField
 from wtforms.validators import Length, EqualTo, Email, ValidationError, DataRequired
 from blood.models import User
+from wtforms.validators import NumberRange
 
 class RegisterForm(FlaskForm):
     def validate_username(self, username_to_check):
@@ -26,7 +27,7 @@ class LoginForm(FlaskForm):
 
 class DonationForm(FlaskForm):
     name = StringField('Full Name', validators=[DataRequired(), Length(min=2, max=100)])
-    age = IntegerField('Age', validators=[DataRequired()])
+    age = IntegerField('Age',validators=[DataRequired(), NumberRange(min=18, max=65)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     address = StringField('Address', validators=[DataRequired(), Length(min=5)])
     phone_number = StringField('Phone Number', validators=[DataRequired(), Length(min=10, max=15)])

@@ -12,7 +12,14 @@
                 <img src="https://coreldrawdesign.com/resources/previews/preview-blood-bank-logo-vector-banner-creative-design-for-free-in-cdr-file-1732190615.webp" alt="Blood Bank Logo" width="150" height="150">
             </div>
 
+
             <h3 class="h4 mb-3 font-weight-bold text-danger">Please Login</h3>
+
+            <div class="alert alert-info" style="font-size: 1rem;">
+                <b>Login as User:</b> Register a new account and log in normally.<br>
+                <b>Login as Admin:</b> Only users with the <span class="badge badge-warning">Admin</span> role can access admin features.<br>
+                <span style="font-size:0.95em;">To become an admin, ask the system administrator to set your role to <b>Admin</b> in the database after registration.</span>
+            </div>
 
             <form method="POST" class="form-signin">
                 {{ form.hidden_tag() }}
